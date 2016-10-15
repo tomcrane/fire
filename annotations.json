@@ -1,0 +1,70 @@
+{
+  "@context": "http://iiif.io/api/presentation/2/context.json",
+  "@id": "https://tomcrane.github.io/fire/annotations.json",
+  "@type": "sc:AnnotationList",
+  "resources": [
+    {
+      "@type": "oa:Annotation",
+      "motivation": "sc:painting",
+      "resource":{
+        "@id": "https://tomcrane.github.io/fire/content/small.jpg",
+        "@type": "dctypes:Image",
+        "format": "image/jpeg",
+        "width": 400,
+        "height": 300
+      },
+      "on": "https://tomcrane.github.io/fire/canvas/1#xywh=550,400,400,300&t=10,20"
+    },
+    {
+      "@type": "oa:Annotation",
+      "motivation": "sc:painting",
+      "resource":{
+        "@id": "https://tomcrane.github.io/fire/content/still.jpg",
+        "@type": "dctypes:Image",
+        "format": "image/jpeg",
+        "width": 600,
+        "height": 450
+      },
+      "on": "https://tomcrane.github.io/fire/canvas/1#xywh=200,200,300,225&t=22,30"
+    },
+    {
+      "@type": "oa:Annotation",
+      "motivation": "sc:painting",
+      "resource":{
+        "@id": "https://tomcrane.github.io/fire/content/out720.mp4",
+        "@type": "dctypes:Video",
+        "format": "video/mp4",
+        "width": 720,
+        "height": 524,
+        "duration": 13
+      },
+      "on": "https://tomcrane.github.io/fire/canvas/1#xywh=200,200,720,524&t=33,46"
+    },
+    {
+      "@type": "oa:Annotation",
+      "motivation": "sc:painting",
+      "resource":{
+        "@id": "https://tomcrane.github.io/fire/content/out7220.mp4",
+        "@type": "dctypes:Video",
+        "format": "video/mp4",
+        "width": 720,
+        "height": 496,
+        "duration": 12
+      },
+      "on": "https://tomcrane.github.io/fire/canvas/1#xywh=100,200,360,248&t=50,62"
+    },
+    {
+      "@type": "oa:Annotation",
+      "motivation": "sc:painting",
+      "resource":{
+        "@id": "https://tomcrane.github.io/fire/content/out2722.mp4",
+        "@type": "dctypes:Video",
+        "format": "video/mp4",
+        "width": 720,
+        "height": 410,
+        "duration": 18
+      },
+      "on": "https://tomcrane.github.io/fire/canvas/1#xywh=600,400,360,210&t=55,73"
+    }
+  ]
+}

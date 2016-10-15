@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fire</title>
+    <style type="text/css">
+        
+        body {
+            font-family: sans-serif;
+        }
+        p {            
+            line-height: 1.4em;
+        }
+        #viewer {
+            border: 1px solid black;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="viewer">
+</div>
+
+<script type="text/javascript" src='lib/jquery-1.9.1.min.js'></script>
+<script type="text/javascript">
+
+    var $viewer = $('#viewer');
+    $.getJSON('manifest.json', function (manifest) {
+        var cv = manifest.sequences[0].canvases[0];
+        $viewer.width(cv.width).height(cv.height); 
+        $viewer.css('background', cv.images[0].resource['@id']);
+        
+    });
+
+</script>
+</body>
+</html>

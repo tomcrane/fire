@@ -1,0 +1,43 @@
+{
+    "@context": "http://iiif.io/api/presentation/2/context.json",
+    "@id": "https://tomcrane.github.io/fire/manifest.json",
+    "@type": "sc:Manifest",
+    "label": "Fire",
+    "description": "An experiment with time in the Presentation API.",
+    "sequences": [
+        {
+            "@id": "https://tomcrane.github.io/fire/seq1",
+            "@type": "sc:Sequence",
+            "canvases": [
+                {
+                    "@id": "https://tomcrane.github.io/fire/canvas/1",
+                    "@type": "sc:Canvas",
+                    "width": 1000,
+                    "height": 750,
+                    "duration": 120,
+                    "images": [
+                        {
+                            "@id": "https://tomcrane.github.io/fire/annos/anno1",
+                            "@type": "oa:Annotation",
+                            "motivation": "sc:painting",
+                            "resource": {
+                                "@id": "https://tomcrane.github.io/fire/content/main.jpg",
+                                "@type": "dctypes:Image",
+                                "format": "image/jpeg",
+                                "height": 1000,
+                                "width": 750
+                            },
+                            "on": "https://tomcrane.github.io/fire/canvas/1"
+                        }
+                    ],
+                    "otherContent": [
+                        {
+                            "@id": "annotations.json",
+                            "@type": "sc:AnnotationList"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
