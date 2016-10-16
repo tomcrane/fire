@@ -13,19 +13,29 @@
         "width": 400,
         "height": 300
       },
-      "on": "https://tomcrane.github.io/fire/canvas/1#xywh=550,400,400,300&t=10,20"
+      "on": "https://tomcrane.github.io/fire/canvas/1#xywh=200,200,400,300&t=2,9"
     },
     {
       "@type": "oa:Annotation",
       "motivation": "sc:painting",
       "resource":{
-        "@id": "https://tomcrane.github.io/fire/content/still.jpg",
+        "@type": "cnt:ContentAsText",
+        "format": "text/plain",
+        "chars": "Fire is the rapid oxidation of a material in the exothermic chemical process of combustion, releasing heat, light, and various reaction products. Slower oxidative processes like rusting or digestion are not included by this definition."
+      },
+      "on": "https://tomcrane.github.io/fire/canvas/1#xywh=70,60,500,100&t=5,20"
+    }, 
+    {
+      "@type": "oa:Annotation",
+      "motivation": "sc:painting",
+      "resource":{
+        "@id": "https://tomcrane.github.io/fire/content/still.JPG",
         "@type": "dctypes:Image",
         "format": "image/jpeg",
         "width": 600,
         "height": 450
       },
-      "on": "https://tomcrane.github.io/fire/canvas/1#xywh=200,200,300,225&t=22,30"
+      "on": "https://tomcrane.github.io/fire/canvas/1#xywh=670,30,300,225&t=9,20"
     },
     {
       "@type": "oa:Annotation",
@@ -38,20 +48,33 @@
         "height": 524,
         "duration": 13
       },
-      "on": "https://tomcrane.github.io/fire/canvas/1#xywh=200,200,720,524&t=33,46"
+      "on": "https://tomcrane.github.io/fire/canvas/1#xywh=200,200,360,262&t=13,26"
     },
     {
       "@type": "oa:Annotation",
       "motivation": "sc:painting",
       "resource":{
-        "@id": "https://tomcrane.github.io/fire/content/out7220.mp4",
+        "@id": "https://tomcrane.github.io/fire/content/out2720.mp4",
         "@type": "dctypes:Video",
         "format": "video/mp4",
         "width": 720,
         "height": 496,
         "duration": 12
       },
-      "on": "https://tomcrane.github.io/fire/canvas/1#xywh=100,200,360,248&t=50,62"
+      "on": "https://tomcrane.github.io/fire/canvas/1#xywh=100,200,360,248&t=26,38"
+    },
+    {
+      "@type": "oa:Annotation",
+      "motivation": "sc:painting",
+      "resource":{
+        "@id": "https://tomcrane.github.io/fire/content/out2720.mp4",
+        "@type": "dctypes:Video",
+        "format": "video/mp4",
+        "width": 720,
+        "height": 496,
+        "duration": 12
+      },
+      "on": "https://tomcrane.github.io/fire/canvas/1#xywh=100,200,360,248&t=38,45"
     },
     {
       "@type": "oa:Annotation",
@@ -64,7 +87,7 @@
         "height": 410,
         "duration": 18
       },
-      "on": "https://tomcrane.github.io/fire/canvas/1#xywh=600,400,360,210&t=55,73"
-    }
+      "on": "https://tomcrane.github.io/fire/canvas/1#xywh=600,420,360,210&t=29,48"
+    }  
   ]
 }
