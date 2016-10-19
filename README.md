@@ -34,5 +34,5 @@ A real client can use libraries such as http://popcornjs.org/ and/or techniques 
 
 ## Client side
 
-The Presentation API model can describe comples things that modern browsers are quite capable of doing client-side. See http://ronallo.com/blog/client-side-video-tricks/ for more information.
+The Presentation API model can describe complex manipulation that modern browsers are quite capable of doing client-side. See http://ronallo.com/blog/client-side-video-tricks/ for more information.
 
