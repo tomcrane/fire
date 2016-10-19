@@ -1,5 +1,9 @@
 # fire
 
+https://tomcrane.github.io/fire/
+
+(contains sound, requires mp4 support - for demo only!)
+
 This is an experiment with time in the IIIF Presentation API, by allowing a temporal dimension (e.g., `t=5,20`) as well as the existing spatial dimensions in the fragment part of an annotation target:
 
 `
