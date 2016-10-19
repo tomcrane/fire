@@ -25,3 +25,7 @@ The use of setTimeout to show and hide the annotations is probably naive. A IIIF
 
 A real client can use libraries such as http://popcornjs.org/ and/or techniques such as https://www.sitepoint.com/creating-accurate-timers-in-javascript/ to do this more reliably.
 
+## Client side
+
+The Presentation API model can describe comples things that modern browsers are quite capable of doing client-side. See http://ronallo.com/blog/client-side-video-tricks/ for more information.
+
