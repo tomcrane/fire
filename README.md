@@ -12,8 +12,11 @@ The canvas itself also has a duration:
 
 ## Why?
 
-Adding time to SharedCanvas is necessary for AV in IIIF. This allows media to be positioned in space and time, which allows storytelling. If your collection is full of images, audio, video and text, you can create IIIF collections and manifests that tell stories through annotation, and pull in fragments of video from anywhere over HTTP. This demo is simple, to give context to discussions about the Presentation API and IIIF AV APIs, but the same model could be used to create things like
-http://apollo17.org/ and almost any timed presentation or exhibit.
+Adding time to Shared Canvas is necessary for AV in IIIF. This allows media to be positioned in space and time. Reconstructing [The Magnificent Ambersons](https://en.wikipedia.org/wiki/The_Magnificent_Ambersons_(film)) with annotation of studio stills, screenplay, scores etc is an AV use case analagous to existing manuscript use cases for images. Conveying the audio sequencing and the packaging of [The White Album](http://www.whitealbumregistry.com/inside.php) is important for Sound collections.
+
+Time in the Presentation API allows storytelling. If your collection is full of images, audio, video and text, you can create IIIF collections and manifests that tell stories through annotation, and pull in fragments of video from anywhere over HTTP. This demo is simple, to give context to discussions about the Presentation API and IIIF AV APIs, but the same model could be used to create things like http://apollo17.org/ and almost any timed presentation or exhibit.
+
+It would be great if, for example, the [multimedia works of Charles and Ray Eames](http://www.eamesoffice.com/catalog-category/multimedia/) were modelled with the IIIF Presentation API and available for annotation, from relatively simple [three projector](http://www.eamesoffice.com/the-work/g-e-m-slide-show/) slide shows to the complexity of [Think](http://www.eamesoffice.com/the-work/think-2/) from the 1964 New York World's Fair.  
 
 This demo only supports integer seconds. Other time fragment syntax is required as specified in https://www.w3.org/TR/media-frags/#naming-time.
 
