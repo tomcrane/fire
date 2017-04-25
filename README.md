@@ -7,7 +7,7 @@ https://tomcrane.github.io/fire/
 This is an experiment with time in the IIIF Presentation API, by allowing a temporal dimension (e.g., `t=5,20`) as well as the existing spatial dimensions in the fragment part of an annotation target:
 
 `
-"on": "https://tomcrane.github.io/fire/canvas/1#xywh=70,60,500,100&t=5,20"
+"target": "https://tomcrane.github.io/fire/canvas/1#xywh=70,60,500,100&t=5,20"
 `
 
 The canvas itself also has a duration:
