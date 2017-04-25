@@ -2,6 +2,7 @@
   "@context": "http://iiif.io/api/presentation/2/context.json",
   "@id": "https://tomcrane.github.io/fire/annotations.json",
   "@type": "sc:AnnotationList",
+  "description": "This is no longer used for the demo - it's Presentation 2.0",
   "resources": [
     {
       "@type": "oa:Annotation",

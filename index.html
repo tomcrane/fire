@@ -6,12 +6,16 @@
         
         body {
             font-family: sans-serif;
+            margin:0;
         }
         p {            
-            line-height: 1.4em;
+            margin-left:8px;
+
         }
         #viewer {
             border: 1px solid black;
+            margin: 5px;
+            position: absolute;
         }
         #viewer .anno {
             position: absolute;
@@ -21,36 +25,35 @@
 </head>
 <body>
 
+<p><a href="https://github.com/tomcrane/fire">https://github.com/tomcrane/fire</a></p>
 <div id="viewer">
 </div>
 
-<p><a href="https://github.com/tomcrane/fire">https://github.com/tomcrane/fire</a></p>
 
 <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 <script type="text/javascript">
 
     var $viewer = $('#viewer');
-    $.getJSON('manifest.json', function (manifest) {
+    $.getJSON('manifest3.json', function (manifest) {
         var cv = manifest.sequences[0].canvases[0];
         $viewer.width(cv.width).height(cv.height); // assume cv and img are same dimensions for now
-        $viewer.css('background-image', 'url(' + cv.images[0].resource['@id'] + ')');
-        $.getJSON(cv.otherContent[0]['@id'], function (annoList){
-            $.each(annoList.resources, function(i, resource){
-                var anno = new Anno(resource, cv);
-                console.log('setting timers for anno ' + anno.content);
-                window.setTimeout(anno.start, anno.t0 * 1000);
-                window.setTimeout(anno.end, anno.t1 * 1000);
-            });
+        //$viewer.css('background-image', 'url(' + cv.content[0].items[0].body.id + ')');
+        var annoList = cv.content[0].items;
+        $.each(cv.content[0].items, function(i, sourceAnno){
+            var anno = new Anno(sourceAnno, cv, i);
+            console.log('setting timers for anno ' + anno.content);
+            window.setTimeout(anno.start, anno.t0 * 1000);
+            window.setTimeout(anno.end, anno.t1 * 1000);
         });
     });
 
-function Anno(paintingAnno, canvas){
-    if(paintingAnno.motivation != "sc:painting"){
+function Anno(paintingAnno, canvas, zIndex){
+    if(paintingAnno.motivation != "painting"){
         return null;
     }
     // these are not very safe...    
-    var spatial = /xywh=([^&]+)/g.exec(paintingAnno.on);
-    var temporal = /t=([^&]+)/g.exec(paintingAnno.on);
+    var spatial = /xywh=([^&]+)/g.exec(paintingAnno.target);
+    var temporal = /t=([^&]+)/g.exec(paintingAnno.target);
     var xywh;
     if(spatial && spatial[1]){
     	xywh = spatial[1].split(',');
@@ -69,24 +72,24 @@ function Anno(paintingAnno, canvas){
     this.h = parseInt(xywh[3]);
     this.t0 = parseInt(t[0]);
     this.t1 = parseInt(t[1]);
+    this.zIndex = zIndex;
     
-    this.content = paintingAnno.resource['@id'];
-    switch(paintingAnno.resource['@type']){
-        case "dctypes:Image":
-            this.element = $('<img class="anno" src="' + this.content + '" />').appendTo($viewer);
+    switch(paintingAnno.body.type){
+        case "Image":
+            this.element = $('<img class="anno" src="' + paintingAnno.body.id + '" />').appendTo($viewer);
         break;
-        case "dctypes:Video":
-            this.element = $('<video class="anno" src="' + this.content + '" />').appendTo($viewer);
+        case "Video":
+            this.element = $('<video class="anno" src="' + paintingAnno.body.id + '" />').appendTo($viewer);
         break;
-        case "cnt:ContentAsText":
-            this.element = $('<div class="anno">' + paintingAnno.resource.chars + "</div>").appendTo($viewer);
+        case "TextualBody":
+            this.element = $('<div class="anno">' + paintingAnno.body.value + "</div>").appendTo($viewer);
         break;
         default:
             return null;
     }
-    this.element.css({left:this.x, top:this.y, width:this.w, height:this.h});
+    this.element.css({left:this.x, top:this.y, width:this.w, height:this.h, zIndex:this.zIndex});
     var anno = this;
-    if(paintingAnno.resource['@type'] == "dctypes:Video") {
+    if(paintingAnno.body.type == "Video") {
         this.start = function(){
             anno.element.show();
             anno.element.get(0).play();
