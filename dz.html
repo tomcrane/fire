@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fire</title>
+    <style type="text/css">
+        
+        body {
+            font-family: sans-serif;
+            margin:0;
+        }
+        p {            
+            margin-left:8px;
+
+        }
+        #viewer {
+            border: 1px solid black;
+            margin: 5px;
+            position: absolute;
+        }
+        #viewer .anno {
+            position: absolute;
+            color:white;
+        }
+
+    </style>
+</head>
+<body>
+
+<p><a href="https://github.com/tomcrane/fire">https://github.com/tomcrane/fire</a></p>
+<div id="viewer">
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+
+    var $viewer = $('#viewer');
+    $.getJSON('fire3-dz.json', function (manifest) {
+        var cv = manifest.items[0];
+        $viewer.width(cv.width).height(cv.height); // assume cv and img are same dimensions for now
+        $.each(cv.items[0].items, function(i, sourceAnno){
+            var anno = new Anno(sourceAnno, cv, i);
+            console.log('setting timers for anno ' + anno.content);
+            window.setTimeout(anno.start, anno.t0 * 1000);
+            window.setTimeout(anno.end, anno.t1 * 1000);
+        });
+    });
+
+function Anno(paintingAnno, canvas, zIndex){
+    if(paintingAnno.motivation != "painting"){
+        return null;
+    }
+    // these are not very safe...    
+    var spatial = /xywh=([^&]+)/g.exec(paintingAnno.target);
+    var temporal = /t=([^&]+)/g.exec(paintingAnno.target);
+    var xywh;
+    if(spatial && spatial[1]){
+    	xywh = spatial[1].split(',');
+    } else {
+        xywh = [0, 0, canvas.width, canvas.height];
+    }
+    var t;
+    if(temporal && temporal[1]) {
+        t = temporal[1].split(',');
+    } else {
+        t = [0, canvas.duration];
+    }
+    this.x = parseInt(xywh[0]);
+    this.y = parseInt(xywh[1]);
+    this.w = parseInt(xywh[2]);
+    this.h = parseInt(xywh[3]);
+    this.t0 = parseInt(t[0]);
+    this.t1 = parseInt(t[1]);
+    this.zIndex = zIndex;
+    
+    switch(paintingAnno.body.type){
+        case "Image":
+            this.element = $('<img class="anno" src="' + paintingAnno.body.id + '" />').appendTo($viewer);
+        break;
+        case "Video":
+            this.element = $('<video class="anno" src="' + paintingAnno.body.id + '" />').appendTo($viewer);
+        break;
+        case "TextualBody":
+            this.element = $('<div class="anno">' + paintingAnno.body.value + "</div>").appendTo($viewer);
+        break;
+        default:
+            return null;
+    }
+    this.element.css({left:this.x, top:this.y, width:this.w, height:this.h, zIndex:this.zIndex});
+    var anno = this;
+    if(paintingAnno.body.type == "Video") {
+        this.start = function(){
+            anno.element.show();
+            anno.element.get(0).play();
+        }        
+        this.end = function(){
+            anno.element.hide();
+            anno.element.get(0).pause();
+        }
+    } else {
+        this.start = function(){
+            anno.element.show();
+        }        
+        this.end = function(){
+            anno.element.hide();
+        }
+    }
+    this.element.hide();
+}
+</script>
+</body>
+</html>
