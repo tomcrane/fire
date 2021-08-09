@@ -127,6 +127,26 @@
                                 "duration": 18
                             },
                             "target": "https://tomcrane.github.io/fire/canvas/1#xywh=600,420,360,210&t=29,48"
+                        },
+                        {
+                            "id": "https://tomcrane.github.io/fire/annos/anno9",
+                            "type": "Annotation",
+                            "motivation": "painting",
+                            "body": {
+                                "id": "https://iiif.wellcomecollection.org/image/b1575215x_0001.jp2/full/278,400/0/default.jpg",
+                                "type": "Image",
+                                "format": "image/jpeg",
+                                "width": 278,
+                                "height": 400,
+                                "service": [
+                                    {
+                                        "id": "https://iiif.wellcomecollection.org/image/b1575215x_0001.jp2",
+                                        "type": "ImageService2",
+                                        "profile": "https://iiif.io/api/image/2/level1.json"
+                                    }
+                                ]
+                            },
+                            "target": "https://tomcrane.github.io/fire/canvas/1#xywh=400,280,278,400&t=50,120"
                         }
                     ]
                 }
