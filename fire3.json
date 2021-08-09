@@ -1,5 +1,5 @@
 {
-    "id": "https://tomcrane.github.io/fire/manifest3.json",
+    "id": "https://tomcrane.github.io/fire/fire3.json",
     "type": "Manifest",
     "label": { "en": ["Fire"] },
     "summary": { "en": ["An experiment with time in the Presentation API."] },
